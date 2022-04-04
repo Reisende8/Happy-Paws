@@ -1,0 +1,38 @@
+.containerContact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.subContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  min-height: 300px;
+  width: 344px;
+  padding-left: 66px;
+  padding-right: 66px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  font-size: 18px;
+  font-weight: 300;
+  margin: 12px;
+  border-radius: 20px;
+}
+
+.miniCircle {
+  height: 130px;
+  background-color: #2d8c9c;
+  width: 130px;
+  border-radius: 100%;
+}
+
+.containerPrezentareContact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+}

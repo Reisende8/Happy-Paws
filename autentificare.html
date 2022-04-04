@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="commonStyle.css" />
+    <link rel="stylesheet" href="autentificare.css" />
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="topNavBar">
+      <div class="navBarLogo">
+        <img src="logo.png" />
+      </div>
+
+      <a href="index.html" class="tagsStyle">Home</a>
+      <a href="servVeter.html" class="tagsStyle">Servicii veterinare</a>
+      <a href="programari.html" class="tagsStyle">Programari</a>
+      <a href="contact.html" class="tagsStyle">Contact</a>
+      <div class="dropdown">
+        <div class="dropBtn" onclick="myFunction()" style="color: #fc4117">
+          Profil
+        </div>
+        <div class="dropdown-content" id="myDropdown">
+          <a
+            href="autentificare.html"
+            class="dropDownLink"
+            style="background-color: #f8cd68"
+            >Autentificare</a
+          >
+          <a href="inregistrare.html" class="dropDownLink">Inregistrare</a>
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="logInTitle">Formular de autentificare</h1>
+
+    <div class="logInContainer">
+      <h2>Email:</h2>
+      <input
+        type="email"
+        placeholder="Enter Email"
+        id="email"
+        class="inputStyle"
+      />
+      <h2>Parola:</h2>
+      <input
+        type="password"
+        placeholder="Enter Password"
+        id="parola"
+        class="inputStyle"
+      />
+
+      <div>
+        <button class="logInBtn" onclick="showName()">Autentificare</button>
+      </div>
+    </div>
+    <div id="htmlInputs"></div>
+  </body>
+</html>

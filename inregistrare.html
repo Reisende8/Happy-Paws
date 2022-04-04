@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="commonStyle.css" />
+    <link rel="stylesheet" href="inregistrare.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav class="topNavBar">
+      <div class="navBarLogo">
+        <img src="logo.png" />
+      </div>
+
+      <a href="index.html" class="tagsStyle">Home</a>
+      <a href="servVeter.html" class="tagsStyle">Servicii veterinare</a>
+      <a href="programari.html" class="tagsStyle">Programari</a>
+      <a href="contact.html" class="tagsStyle">Contact</a>
+      <div class="dropdown">
+        <div class="dropBtn" onclick="myFunction()" style="color: #fc4117">
+          Profil
+        </div>
+        <div class="dropdown-content" id="myDropdown">
+          <a href="autentificare.html" class="dropDownLink">Autentificare</a>
+          <a
+            href="inregistrare.html"
+            class="dropDownLink"
+            style="background-color: #f8cd68"
+            >Inregistrare</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <h1 class="titleRegister">Formular de inregistrare</h1>
+    <div class="registerContainer">
+      <div class="item1">
+        <div class="inputNames">Nume:</div>
+        <input
+          type="text"
+          placeholder="Scrie Nume"
+          id="nume"
+          class="inputStyleRegister"
+        />
+      </div>
+
+      <div class="item2">
+        <div class="inputNames">Prenume:</div>
+        <input
+          type="text"
+          placeholder="Scrie Prenume"
+          id="prenume"
+          class="inputStyleRegister"
+        />
+      </div>
+
+      <div class="item3">
+        <div class="inputNames">Email:</div>
+        <input
+          type="email"
+          placeholder="Scrie email"
+          id="emailRegister"
+          class="inputStyleRegister"
+        />
+      </div>
+
+      <div class="item4">
+        <div class="inputNames">Parola:</div>
+        <input
+          type="password"
+          placeholder="Scrie parola"
+          id="parolaRegister"
+          class="inputStyleRegister"
+        />
+      </div>
+
+      <div class="item5">
+        <div class="inputNames">Repeta parola:</div>
+        <input
+          type="password"
+          placeholder="Repeta parola de mai sus"
+          id="repetaParolaRegister"
+          class="inputStyleRegister"
+        />
+      </div>
+    </div>
+    <div class="RegisterBtnContainer">
+      <button class="RegisterBtn" onclick="registerInfo()">Inregistrare</button>
+    </div>
+
+    <div id="htmlInputsRegister"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,74 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Comfortaa", cursive;
+}
+
+.registerContainer {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 280px 280px;
+  grid-template-rows: 100px 100px 100px 100px;
+}
+
+.inputStyleRegister {
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  height: 24px;
+  border-radius: 16px;
+  border-width: 1px;
+}
+
+.item3,
+.item4,
+.item5 {
+  grid-column: 1 / span 2;
+}
+
+#emailRegister,
+#parolaRegister,
+#repetaParolaRegister {
+  width: 532px;
+}
+
+#nume,
+#prenume {
+  width: 250px;
+}
+
+.RegisterBtnContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.RegisterBtn {
+  margin: 24px;
+  font-size: x-large;
+  text-align: center;
+  padding: 8px;
+  background-color: #ff9f31;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.titleRegister {
+  text-align: center;
+  margin-top: 44px;
+  margin-bottom: 32px;
+}
+
+.inputNames {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: larger;
+}
+
+#htmlInputsRegister {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
