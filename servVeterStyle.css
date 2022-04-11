@@ -30,9 +30,10 @@
 
 .cardImage {
   height: 100px;
-  background-color: blueviolet;
+  background-color: #df920e;
   width: 100px;
   margin-bottom: 0px;
+  border-radius: 100%;
 }
 
 .titluMiniContainer {

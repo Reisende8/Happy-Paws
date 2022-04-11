@@ -1,18 +1,73 @@
-#main-img {
-  width: 100%;
-  max-height: 80vh;
+.imgTextContainer {
+  width: 100vw;
+  height: calc(100vh - 76px);
+  position: relative;
+  overflow-x: hidden;
 }
 
-.imgTextContainer {
-  position: relative;
-  text-align: center;
-  color: black;
+.caroussel {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  animation: slide 16s infinite;
+}
+
+.carousselImg {
+  max-width: 100vw;
+  height: calc(100vh - 76px);
 }
 
 .centeredText {
   position: absolute;
-  top: 25%;
+  top: 30%;
   width: 100%;
   text-align: center;
-  color: black;
+  font-size: xx-large;
+  font-weight: bolder;
+  text-shadow: 2px 2px black;
+  z-index: 20;
+  color: #ff4f04;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(0);
+  }
+  30% {
+    transform: translateX(-100vw);
+  }
+  50% {
+    transform: translateX(-100vw);
+  }
+  55% {
+    transform: translateX(-200vw);
+  }
+  75% {
+    transform: translateX(-200vw);
+  }
+  80% {
+    transform: translateX(-300vw);
+  }
+  100% {
+    transform: translateX(-300vw);
+  }
+}
+
+.descriereContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  background-color: #f170397e;
+  width: 100vw;
+  height: 300px;
+  border-radius: 30px;
+}
+
+.continutDescriere {
+  font-size: large;
 }
