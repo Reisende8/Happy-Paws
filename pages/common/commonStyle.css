@@ -16,6 +16,8 @@ body {
   align-items: center;
   background-color: #fc8a17;
   overflow: hidden;
+  /*position: sticky;*/
+  top: 0;
   max-width: 100vw;
   height: 76px;
   overflow-x: hidden;
@@ -85,4 +87,10 @@ body {
   flex-direction: column;
   justify-content: center;
   background-color: #f6d995;
+}
+
+@media (max-width: 768px) {
+  .topNavBar {
+    display: none;
+  }
 }

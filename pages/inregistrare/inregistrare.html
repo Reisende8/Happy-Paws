@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="commonStyle.css" />
+    <link rel="stylesheet" href="../common/commonStyle.css" />
     <link rel="stylesheet" href="inregistrare.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,19 +14,23 @@
   <body>
     <nav class="topNavBar">
       <div class="navBarLogo">
-        <img src="logo.png" />
+        <img src="../photos/logo.png" />
       </div>
 
-      <a href="index.html" class="tagsStyle">Home</a>
-      <a href="servVeter.html" class="tagsStyle">Servicii veterinare</a>
-      <a href="programari.html" class="tagsStyle">Programari</a>
-      <a href="contact.html" class="tagsStyle">Contact</a>
+      <a href="../home/index.html" class="tagsStyle">Home</a>
+      <a href="../serviciiVeterinare/servVeter.html" class="tagsStyle"
+        >Servicii veterinare</a
+      >
+      <a href="../programari/programari.html" class="tagsStyle">Programari</a>
+      <a href="../contact/contact.html" class="tagsStyle">Contact</a>
       <div class="dropdown">
         <div class="dropBtn" onclick="myFunction()" style="color: #fc4117">
           Profil
         </div>
         <div class="dropdown-content" id="myDropdown">
-          <a href="autentificare.html" class="dropDownLink">Autentificare</a>
+          <a href="../autentificare/autentificare.html" class="dropDownLink"
+            >Autentificare</a
+          >
           <a
             href="inregistrare.html"
             class="dropDownLink"
@@ -95,6 +99,6 @@
 
     <div id="htmlInputsRegister"></div>
 
-    <script src="script.js"></script>
+    <script src="../common/script.js"></script>
   </body>
 </html>
