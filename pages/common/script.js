@@ -24,31 +24,14 @@ function showName() {
   let email = document.getElementById("email");
   let parola = document.getElementById("parola");
 
-  /*
-  const formValues = { email: email.value, password: parola.value };
-  console.log(formValues);
-  */
-  let tag1 = document.createElement("h1");
-  tag1.setAttribute("id", "tagEmail");
-
-  let tag2 = document.createElement("h1");
-  tag2.setAttribute("id", "tagParola");
-
   let tagErr = document.createElement("h2");
   tagErr.setAttribute("id", "errId");
 
   let tagValidEmail = document.createElement("h2");
   tagValidEmail.setAttribute("id", "validEmailId");
 
-  const tagEmailId = document.getElementById("tagEmail");
-  const tagParolaId = document.getElementById("tagParola");
   const errMessage = document.getElementById("errId");
   const tagValidEmailLogIn = document.getElementById("validEmailId");
-
-  if (tagEmailId && tagParolaId) {
-    tagEmailId.remove();
-    tagParolaId.remove();
-  }
 
   if (errMessage) {
     errMessage.remove();
@@ -73,14 +56,120 @@ function showName() {
     );
     document.getElementById("htmlInputs").appendChild(tagValidEmail);
   }
-
-  if (tagErrGol == true && validateEmail(email.value) == true) {
-    tag1.appendChild(document.createTextNode(email.value));
-    tag2.appendChild(document.createTextNode(parola.value));
-    document.getElementById("htmlInputs").appendChild(tag1);
-    document.getElementById("htmlInputs").appendChild(tag2);
-  }
 }
+
+const autentificare = async () => {
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("parola").value;
+  const errorText = document.getElementById("errorText");
+  const errorValidationEmail = document.getElementById("errorValidationEmail");
+  const errorEmailPassword = document.getElementById("errorEmailPassword");
+
+  errorText.innerHTML = "";
+  errorValidationEmail.innerHTML = "";
+  errorEmailPassword.innerHTML = "";
+
+  if (email === "" || password === "") {
+    errorEmailPassword.innerHTML = "Toate campurile sunt obligatorii!";
+    return;
+  }
+
+  if (validateEmail(email) == false) {
+    errorValidationEmail.innerHTML = "Acesta nu e un email valid!";
+    return;
+  }
+
+  await fetch("http://localhost:3000/autentificare", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email: email,
+      password: password,
+    }),
+  })
+    .then(async (response) => {
+      const responseBody = await response.json();
+      if (response.status !== 200) {
+        throw responseBody;
+      }
+    })
+    .catch((error) => {
+      errorText.innerHTML = error.error;
+    });
+  //console.log({ email: email, password: password });
+};
+
+const inregistrare = async () => {
+  const lastName = document.getElementById("nume").value;
+  const firstName = document.getElementById("prenume").value;
+  const email = document.getElementById("emailRegister").value;
+  const password = document.getElementById("parolaRegister").value;
+  const repeatPassword = document.getElementById("repetaParolaRegister").value;
+  const errorTextRegister = document.getElementById("errorTextRegister");
+  const errorValidEmail = document.getElementById("errorValidEmailReg");
+  const errorInputs = document.getElementById("errorInputs");
+  const errorRepeatPassword = document.getElementById("errorRepeatPassword");
+
+  errorTextRegister.innerHTML = "";
+  errorValidEmail.innerHTML = "";
+  errorInputs.innerHTML = "";
+  errorRepeatPassword.innerHTML = "";
+
+  if (
+    lastName === "" ||
+    firstName === "" ||
+    email === "" ||
+    password === "" ||
+    repeatPassword === ""
+  ) {
+    errorInputs.innerHTML = "Toate campurile sunt obligatorii!";
+    return;
+  }
+
+  if (validateEmail(email) == false) {
+    errorValidEmail.innerHTML = "Acesta nu e un email valid!";
+    return;
+  }
+
+  if (password !== repeatPassword) {
+    errorRepeatPassword.innerHTML =
+      "Parola si Repeta parola trebuie sa fie egale!";
+    return;
+  }
+
+  await fetch("http://localhost:3000/inregistrare", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      lastName: lastName,
+      firstName: firstName,
+      email: email,
+      password: password,
+      repeatPassword: repeatPassword,
+    }),
+  })
+    .then(async (response) => {
+      const responseBody = await response.json();
+      if (response.status !== 200) {
+        throw responseBody;
+      }
+    })
+    .catch((error) => {
+      errorTextRegister.innerHTML = error.error;
+    });
+  console.log({
+    lastName: lastName,
+    firstName: firstName,
+    email: email,
+    password: password,
+    repeatPassword: repeatPassword,
+  });
+  //console.log(lastName, firstName, email, password, repeatPassword);
+};
 
 function registerInfo() {
   let numeReg = document.getElementById("nume");

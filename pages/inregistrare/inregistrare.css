@@ -67,8 +67,13 @@ body {
   font-size: larger;
 }
 
-#htmlInputsRegister {
+#htmlInputsRegister,
+#errorTextRegister,
+#errorValidEmailReg,
+#errorInputs,
+#errorRepeatPassword {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: red;
 }
