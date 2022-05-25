@@ -6,7 +6,7 @@ function showOtherImg() {
     "pisicuta_adormita.jpg",
   ];
 
-  var im1 = document.getElementById("main-img");
+  let im1 = document.getElementById("main-img");
 
   for (i = 0; i < imgArray.length; i++) {
     if (i == imgArray.length - 1) {

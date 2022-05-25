@@ -1,3 +1,7 @@
+body {
+  background-color: salmon;
+}
+
 .containerServicii {
   display: flex;
   flex-direction: row;
@@ -51,4 +55,31 @@
   justify-content: center;
   align-items: center;
   margin: 18px;
+}
+
+.descriereContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+  background-color: #ef672dcf;
+  width: 1200px;
+  height: 100px;
+  border-radius: 30px;
+  margin-left: 156px;
+  margin-bottom: 50px;
+  padding: 30px;
+}
+
+.continutDescriere {
+  font-size: large;
+}
+
+.stopBtn {
+  border-radius: 24px;
+  font-size: 20px;
+  background-color: #df4d0e;
+  border: none;
+  padding: 10px;
 }

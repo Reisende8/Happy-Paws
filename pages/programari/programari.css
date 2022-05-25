@@ -1,0 +1,91 @@
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Comfortaa", cursive;
+}
+
+.titleProgramari {
+  margin-top: 24px;
+  margin-left: 520px;
+}
+
+#programariForm {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 280px 280px;
+  grid-template-rows: 100px 100px 100px 100px 100px 100px 100px;
+}
+
+#field3,
+#field4,
+#field5,
+#field6 {
+  grid-column: 1 / span 2;
+}
+
+#field6 {
+  margin-top: 58px;
+  margin-bottom: 24px;
+}
+
+#field7 {
+  grid-column: 1 / span 2;
+  margin-top: 20px;
+}
+
+.inputStyleProgramari {
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  height: 24px;
+  border-radius: 16px;
+  border-width: 1px;
+}
+
+.inputsNamesProgramari {
+  font-weight: 700;
+  font-size: larger;
+  margin-top: 10px;
+}
+
+#field8 {
+  margin-left: 120px;
+}
+
+#programariBtn {
+  margin: 24px;
+  font-size: x-large;
+  text-align: center;
+  padding: 8px;
+  background-color: #ff9f31;
+  border-radius: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+#selectAnimalTypes {
+  width: 490px;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  height: 36px;
+  border-radius: 16px;
+  border-width: 1px;
+}
+
+#commId {
+  border-radius: 16px;
+  max-width: 480px;
+  max-height: 100px;
+}
+
+#dateId {
+  width: 470px;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  height: 24px;
+  border-radius: 16px;
+  border-width: 1px;
+}

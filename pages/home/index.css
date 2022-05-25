@@ -55,19 +55,3 @@
     transform: translateX(-300vw);
   }
 }
-
-.descriereContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  background-color: #f170397e;
-  width: 100vw;
-  height: 300px;
-  border-radius: 30px;
-}
-
-.continutDescriere {
-  font-size: large;
-}

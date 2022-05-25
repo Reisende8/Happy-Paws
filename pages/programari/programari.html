@@ -2,7 +2,9 @@
 <html>
   <head>
     <link rel="stylesheet" href="../common/commonStyle.css" />
+    <link rel="stylesheet" href="../programari/programari.css" />
     <script src="../common/script.js"></script>
+    <script src="../programari/progrScript.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -36,5 +38,91 @@
         </div>
       </div>
     </nav>
+
+    <h1 class="titleProgramari">Formular de programare</h1>
+    <form id="programariForm">
+      <div id="field1">
+        <div class="inputsNamesProgramari">Nume:</div>
+        <input
+          type="text"
+          placeholder="Scrie Nume"
+          id="nume"
+          class="inputStyleProgramari"
+        />
+      </div>
+
+      <div id="field2">
+        <div class="inputsNamesProgramari">Prenume:</div>
+        <input
+          type="text"
+          placeholder="Scrie Prenume"
+          id="prenume"
+          class="inputStyleProgramari"
+        />
+      </div>
+
+      <div id="field3">
+        <div class="inputsNamesProgramari">Tip animal:</div>
+        <select
+          name="tipAnimal"
+          class="inputsNamesProgramari"
+          id="selectAnimalTypes"
+        >
+          <option value="optiune">--Va rugam alegeti o optiune--</option>
+          <option value="caine">Caine</option>
+          <option value="pisica">Pisica</option>
+        </select>
+      </div>
+
+      <div id="field4">
+        <div class="inputsNamesProgramari">Sexul animalului:</div>
+        <input
+          type="radio"
+          id="sexAnimal1"
+          name="Animal"
+          class="inputStyleProgramari"
+          value="Male"
+        />
+        <label for="sexAnimal1">Male</label>
+        <input
+          type="radio"
+          id="sexAnimal2"
+          name="Animal"
+          class="inputStyleProgramari"
+          value="Female"
+        />
+        <label for="sexAnimal2">Female</label>
+      </div>
+
+      <div id="field5">
+        <div class="inputsNamesProgramari">Intrebari orientative:</div>
+        <input type="checkbox" id="Intrebare1" name="intrebare1" value="1" />
+        <label for="Intrebare1">1. A mai avut alte probleme de sanatate</label
+        ><br />
+        <input type="checkbox" id="Intrebare2" name="intrebare2" value="2" />
+        <label for="Intrebare2">2. Este prima data la veterinar</label><br />
+        <input type="checkbox" id="Intrebare3" name="intrebare3" value="3" />
+        <label for="Intrebare3">3. Este un animal curajos</label><br />
+        <input type="checkbox" id="Intrebare4" name="intrebare4" value="4" />
+        <label for="Intrebare4">4. Este un animal mai putin cuminte</label
+        ><br />
+      </div>
+
+      <div id="field6">
+        <div class="inputsNamesProgramari" id="commId">
+          Comentarii despre programare:
+        </div>
+        <textarea id="commId" name="commId" rows="5" cols="62"></textarea>
+      </div>
+
+      <div id="field7">
+        <div class="inputsNamesProgramari">Data programarii:</div>
+        <input type="date" id="dateId" />
+      </div>
+
+      <div id="field8">
+        <input type="button" id="programariBtn" value="Programeaza-ma" />
+      </div>
+    </form>
   </body>
 </html>

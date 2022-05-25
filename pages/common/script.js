@@ -1,12 +1,15 @@
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+  document.getElementById("myDropdown").classList.toggle("show"); //adauga la colectia de clase clasa show
 }
 
-window.onclick = function (e) {
-  if (!e.target.matches(".dropBtn") && !e.target.matches(".dropDownLink")) {
+window.onclick = function (event) {
+  if (
+    !event.target.matches(".dropBtn") &&
+    !event.target.matches(".dropDownLink")
+  ) {
     let myDropdown = document.getElementById("myDropdown");
     if (myDropdown.classList.contains("show")) {
-      myDropdown.classList.remove("show");
+      myDropdown.classList.remove("show"); // sterge din colectia de clase clasa show
     }
   }
 };

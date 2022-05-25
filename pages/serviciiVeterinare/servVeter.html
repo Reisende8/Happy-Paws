@@ -3,6 +3,7 @@
   <head>
     <link rel="stylesheet" href="../common/commonStyle.css" />
     <script src="../common/script.js"></script>
+    <script src="../serviciiVeterinare/servVeterScript.js"></script>
     <link rel="stylesheet" href="servVeterStyle.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -39,10 +40,14 @@
     </nav>
 
     <div class="containerPrezentareServicii">
-      <h1>SERVICIILE NOASTRE</h1>
+      <h1 onclick="coordonate(event)">SERVICIILE NOASTRE</h1>
+      <h3 id="coordId"></h3>
+      <h3 id="mathId"></h3>
       <h3>
         Aici vei găsi serviciile oferite de "Happy Paws" pentru animăluțul tău :
       </h3>
+
+      <button class="stopBtn" onclick="stopColor()">Stop Toggling</button>
     </div>
 
     <div class="containerServicii">
