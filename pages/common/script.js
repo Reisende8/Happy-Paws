@@ -96,6 +96,8 @@ const autentificare = async () => {
       const responseBody = await response.json();
       if (response.status !== 200) {
         throw responseBody;
+      } else {
+        localStorage.setItem("user", JSON.stringify(responseBody));
       }
     })
     .catch((error) => {

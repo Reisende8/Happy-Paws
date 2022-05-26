@@ -1,0 +1,16 @@
+[
+  {
+    "lastName": "Balasa",
+    "firstName": "Bianca",
+    "email": "byby.2ank@yahoo.com",
+    "password": "123",
+    "repeatPassword": "123"
+  },
+  {
+    "lastName": "Cioinica",
+    "firstName": "Petru",
+    "email": "petrucioinica@yahoo.com",
+    "password": "1234",
+    "repeatPassword": "1234"
+  }
+]
