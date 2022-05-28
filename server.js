@@ -1,9 +1,10 @@
 const express = require("express");
-const app = express();
+const app = express(); //instanta a serverului de Express(creaza serverul de express)
 const bodyParser = require("body-parser");
 const fs = require("fs");
 
-const jsonParser = bodyParser.json();
+const jsonParser = bodyParser.json(); //e o librarie a npm-ului folosită pentru
+//a procesa datele trimise in requestul HTTP
 
 app.use(express.static("./pages"));
 
@@ -45,7 +46,6 @@ app.post("/autentificare", jsonParser, (req, res) => {
   const users = JSON.parse(fs.readFileSync("./data/users.json"));
   //verificam daca intre users din array exista vreunul cu emailul si parola primite
   //daca da returnam userul respectiv, daca nu 400 bad request
-  //console.log(email, password);
   const result = users.filter(
     (user) => user.email == email && user.password == password
   );
@@ -78,11 +78,11 @@ app.post("/inregistrare", jsonParser, (req, res) => {
   }
 
   //luam fisierul de users
-  const users = JSON.parse(fs.readFileSync("./data/users.json"));
+  const users = JSON.parse(fs.readFileSync("./data/users.json")); // JSON.parse() converteste textul intr-un obiect JS
   //appenduim userul creat la users existenti
   users.push(req.body);
   //stocam noul array de users inapoi in json
-  fs.writeFileSync("./data/users.json", JSON.stringify(users));
+  fs.writeFileSync("./data/users.json", JSON.stringify(users)); //JSON.stringify() converteste intr-un obiect JSON
 
   console.log(lastName, firstName, email, password, repeatPassword);
   res.send({

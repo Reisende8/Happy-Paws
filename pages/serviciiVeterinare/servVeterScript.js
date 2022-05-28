@@ -28,6 +28,38 @@ window.onload = function () {
   let x = Math.floor(Math.random() * 10 + 1);
   document.getElementById("mathId").innerHTML =
     "Azi iti oferim " + x + " imbratisari pentru animalutul tau!";
+
+  const parentLi = document.getElementById("listId");
+  const childrenLi = parentLi.children; //o colectie a copiilor(tagurilor) lui parentLi
+  for (let i = 0; i < childrenLi.length; i++) {
+    childrenLi[i].style.fontStyle = "italic";
+  }
+
+  const animal1 = { nume: "Piscotel", varsta: 1 };
+  const animal2 = { nume: "Pluto", varsta: 3 };
+  animal1.boala = "indigestie";
+  animal1.tipAnimal = "Pisica";
+  animal2.boala = "labuta rupta";
+  animal2.tipAnimal = "Cainele";
+  document.getElementById("animal1").innerHTML =
+    animal1.tipAnimal +
+    " cu numele " +
+    animal1.nume +
+    " in varsta de " +
+    animal1.varsta +
+    " an, a avut " +
+    animal1.boala +
+    " si dupa 3 zile de tratament s-a intors fericit la familia ei.";
+
+  document.getElementById("animal2").innerHTML =
+    animal2.tipAnimal +
+    " cu numele " +
+    animal2.nume +
+    " in varsta de " +
+    animal2.varsta +
+    " ani, a avut " +
+    animal2.boala +
+    " si dupa o saptamana putea din nou sa se joace fericit prin gradina familiei lui.";
 };
 
 const firstColor = "salmon";

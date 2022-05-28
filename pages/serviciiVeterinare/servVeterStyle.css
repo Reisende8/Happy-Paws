@@ -83,3 +83,16 @@ body {
   border: none;
   padding: 10px;
 }
+
+.animalContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+#animal1,
+#animal2 {
+  display: block;
+}

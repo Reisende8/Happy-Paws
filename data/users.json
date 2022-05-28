@@ -7,10 +7,17 @@
     "repeatPassword": "123"
   },
   {
-    "lastName": "Cioinica",
-    "firstName": "Petru",
-    "email": "petrucioinica@yahoo.com",
+    "lastName": "Balasa",
+    "firstName": "Elvira",
+    "email": "balasaelvira@yahoo.com",
     "password": "1234",
     "repeatPassword": "1234"
+  },
+  {
+    "lastName": "Balasa",
+    "firstName": "Vasile",
+    "email": "vasilebalasa@gmail.com",
+    "password": "12345",
+    "repeatPassword": "12345"
   }
 ]
