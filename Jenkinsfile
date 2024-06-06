@@ -12,7 +12,7 @@ pipeline {
     }
     stage ('Checkout from SCM'){
       steps {
-        git branch: 'main', credentialsID: 'github', url: 'https://github.com/Reisende8/Happy-Paws.git'
+        git branch: 'main', credentialsId: 'github', url: 'https://github.com/Reisende8/Happy-Paws.git'
       }
     }
     stage('Build Aoplication'){
