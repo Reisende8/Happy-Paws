@@ -4,17 +4,20 @@ pipeline {
     jdk 'Java17' 
     maven 'Maven3'
   }
-    stage ('Checkout from SCM'){
+    
+  
+  
+  stage ('Checkout from SCM'){
       steps {
         git branch: 'main', credentialsId: 'github', url: 'https://github.com/Reisende8/Happy-Paws.git'
       }
     }
-    stage('Build Aoplication'){
+  stage('Build Aoplication'){
       steps {
         sh "mvn clean package"
       }
     }
-    stage('Test Application'){
+  stage('Test Application'){
       steps {
         sh "mvn test"
       }
