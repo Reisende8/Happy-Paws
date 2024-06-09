@@ -1,10 +1,16 @@
 pipeline {
     agent any
 
+    environment {
+        GIT_REPO_URL = 'https://github.com/Reisende8/Happy-Paws.git'
+        GIT_BRANCH = 'main' // Specify the branch you want to build
+        GIT_CREDENTIALS_ID = 'github' // Replace with your actual credentials ID
+    }
+
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/Reisende8/Happy-Paws.git'
+                git branch: "${GIT_BRANCH}", credentialsId: "${GIT_CREDENTIALS_ID}", url: "${GIT_REPO_URL}"
             }
         }
 
