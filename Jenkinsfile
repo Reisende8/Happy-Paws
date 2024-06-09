@@ -1,15 +1,10 @@
 pipeline {
     agent any
 
-    environment {
-        GIT_REPO_URL = 'https://github.com/Reisende8/Happy-Paws.git'
-        GIT_BRANCH = 'main' // Specify the branch you want to build
-    }
-
     stages {
         stage('Clone Repository') {
             steps {
-                git branch: "${GIT_BRANCH}", url: "${GIT_REPO_URL}"
+                git 'https://github.com/Reisende8/Happy-Paws.git'
             }
         }
 
