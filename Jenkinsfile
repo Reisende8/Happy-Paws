@@ -4,7 +4,7 @@ pipeline {
     environment {
         GIT_REPO_URL = 'https://github.com/Reisende8/Happy-Paws.git'
         GIT_BRANCH = 'main' // Specify the branch you want to build
-        GIT_CREDENTIALS_ID = 'github' // Replace with your actual credentials ID
+        GIT_CREDENTIALS_ID = 'github' // Use the credentials ID 'github'
     }
 
     stages {
@@ -16,13 +16,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                sh '''
+                   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+                   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                   npm install
+                '''
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'npm test'
+                sh '''
+                   export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+                   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+                   npm test
+                '''
             }
         }
     }
