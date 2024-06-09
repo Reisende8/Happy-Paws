@@ -58,4 +58,6 @@ pipeline {
             script {
                 cleanWs()
             }
-     
+        }
+    }
+} // Make sure this closing brace is present
