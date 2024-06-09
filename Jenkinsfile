@@ -4,7 +4,7 @@ pipeline {
     environment {
         DOCKER_IMAGE = "my-frontend-app"
         DOCKER_REGISTRY = "my-docker-registry"
-        KUBE_CONFIG = credentials('kubeconfig')
+        KUBE_CONFIG = credentials('kubeconfig') // Ensure this ID matches the actual credentials ID in Jenkins
     }
 
     stages {
@@ -55,9 +55,9 @@ pipeline {
 
     post {
         always {
-            script {
+            node {
                 cleanWs()
             }
         }
     }
-} // Make sure this closing brace is present
+}
