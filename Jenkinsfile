@@ -48,4 +48,14 @@ pipeline {
             steps {
                 script {
                     ansiblePlaybook playbook: 'deploy-frontend.yml', inventory: 'inventory.ini', extras: '-e image_tag=${env.BUILD_ID}'
-                
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            script {
+                cleanWs()
+            }
+     
