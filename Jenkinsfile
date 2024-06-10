@@ -25,21 +25,21 @@ pipeline {
 
         stage('Install Dependencies') {
             steps {
-                sh '''
-                   export NVM_DIR="$HOME/.nvm"
-                   [ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"
+                sh """
+                   export NVM_DIR="\$HOME/.nvm"
+                   [ -s "\$NVM_DIR/nvm.sh" ] && \\. "\$NVM_DIR/nvm.sh"
                    npm install
-                '''
+                """
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh '''
-                   export NVM_DIR="$HOME/.nvm"
-                   [ -s "$NVM_DIR/nvm.sh" ] && \\. "$NVM_DIR/nvm.sh"
+                sh """
+                   export NVM_DIR="\$HOME/.nvm"
+                   [ -s "\$NVM_DIR/nvm.sh" ] && \\. "\$NVM_DIR/nvm.sh"
                    npm test
-                '''
+                """
             }
         }
 
@@ -84,4 +84,18 @@ pipeline {
                     withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
                         ansiblePlaybook(
                             playbook: "${WORKSPACE}/ansible/deploy.yml",
-                            inventory: "${
+                            inventory: "${WORKSPACE}/ansible/inventory",
+                            colorized: true
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
