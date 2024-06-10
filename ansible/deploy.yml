@@ -1,0 +1,6 @@
+- hosts: localhost
+  tasks:
+    - name: Create Kubernetes deployment
+      kubernetes.core.k8s:
+        state: present
+        definition: "{{ lookup('file', 'k8s/deployment.yaml') }}"
