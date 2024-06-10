@@ -16,6 +16,7 @@ FROM node:14
 
 WORKDIR /app
 
+COPY --from=build /app/pages /app/pages
 COPY --from=build /app/build /app/build
 COPY --from=build /app/server.js .
 COPY --from=build /app/package*.json ./
