@@ -9,28 +9,10 @@ const jsonParser = bodyParser.json();
 app.use(express.static(path.join(__dirname, 'build')));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, 'pages/home', 'index.html'));
 });
 
-app.get("/programari", (req, res) => {
-  res.sendFile("./programari/programari.html", { root: "./pages" });
-});
-
-app.get("/autentificare", (req, res) => {
-  res.sendFile("./autentificare/autentificare.html", { root: "./pages" });
-});
-
-app.get("/contact", (req, res) => {
-  res.sendFile("./contact/contact.html", { root: "./pages" });
-});
-
-app.get("/inregistrare", (req, res) => {
-  res.sendFile("./inregistrare/inregistrare.html", { root: "./pages" });
-});
-
-app.get("/serviciiVeterinare", (req, res) => {
-  res.sendFile("./serviciiVeterinare/servVeter.html", { root: "./pages" });
-});
+// Other routes...
 
 app.post("/autentificare", jsonParser, (req, res) => {
   const email = req.body.email;
