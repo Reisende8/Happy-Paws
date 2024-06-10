@@ -2,7 +2,7 @@
   hosts: localhost
   tasks:
     - name: Create Kubernetes deployment
-      kubectl:
+      community.kubernetes.k8s:
         kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
         state: present
         definition: "{{ lookup('file', 'k8s/deployment.yaml') }}"
