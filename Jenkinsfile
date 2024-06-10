@@ -17,6 +17,13 @@ pipeline {
             }
         }
 
+        stage('Verify Workspace') {
+            steps {
+                sh 'pwd'
+                sh 'ls -R $(pwd)'
+            }
+        }
+
         stage('Install Dependencies') {
             steps {
                 sh '''
@@ -55,13 +62,30 @@ pipeline {
             }
         }
 
+        stage('Start Minikube') {
+            steps {
+                sh 'minikube start --driver=docker'
+            }
+        }
+
+        stage('Debug Kubernetes Connectivity') {
+            steps {
+                script {
+                    withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
+                        sh 'cat $KUBECONFIG'
+                        sh 'curl -k https://192.168.49.2:8443/version'
+                    }
+                }
+            }
+        }
+
         stage('Deploy to Kubernetes') {
             steps {
                 script {
                     withCredentials([file(credentialsId: "${KUBECONFIG_CREDENTIALS_ID}", variable: 'KUBECONFIG')]) {
                         ansiblePlaybook(
-                            playbook: 'ansible/deploy.yml',
-                            inventory: 'ansible/inventory',
+                            playbook: '$(pwd)/ansible/deploy.yml',
+                            inventory: '$(pwd)/ansible/inventory',
                             colorized: true
                         )
                     }
