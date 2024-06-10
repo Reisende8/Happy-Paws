@@ -1,15 +1,15 @@
 const express = require("express");
-const app = express(); //instanta a serverului de Express(creaza serverul de express)
+const path = require("path");
 const bodyParser = require("body-parser");
 const fs = require("fs");
 
-const jsonParser = bodyParser.json(); //e o librarie a npm-ului folosită pentru
-//a procesa datele trimise in requestul HTTP
+const app = express();
+const jsonParser = bodyParser.json();
 
-app.use(express.static("./pages"));
+app.use(express.static(path.join(__dirname, 'build')));
 
 app.get("/", (req, res) => {
-  res.sendFile("./home/index.html", { root: "./pages" });
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.get("/programari", (req, res) => {
@@ -37,15 +37,12 @@ app.post("/autentificare", jsonParser, (req, res) => {
   const password = req.body.password;
 
   if (!email || !password) {
-    res.status(400).send({
+    return res.status(400).send({
       error: "Emailul si parola sunt obligatorii!",
     });
   }
 
-  //luam arrayul de users
   const users = JSON.parse(fs.readFileSync("./data/users.json"));
-  //verificam daca intre users din array exista vreunul cu emailul si parola primite
-  //daca da returnam userul respectiv, daca nu 400 bad request
   const result = users.filter(
     (user) => user.email == email && user.password == password
   );
@@ -59,41 +56,34 @@ app.post("/autentificare", jsonParser, (req, res) => {
 });
 
 app.post("/inregistrare", jsonParser, (req, res) => {
-  const lastName = req.body.lastName;
-  const firstName = req.body.firstName;
-  const email = req.body.email;
-  const password = req.body.password;
-  const repeatPassword = req.body.repeatPassword;
+  const { lastName, firstName, email, password, repeatPassword } = req.body;
 
   if (!lastName || !firstName || !email || !password || !repeatPassword) {
-    res.status(400).send({
+    return res.status(400).send({
       error: "Toate campurile sunt obligatorii!",
     });
   }
 
   if (password !== repeatPassword) {
-    res.status(400).send({
+    return res.status(400).send({
       error: "Parola si Repeta parola trebuie sa fie egale!",
     });
   }
 
-  //luam fisierul de users
-  const users = JSON.parse(fs.readFileSync("./data/users.json")); // JSON.parse() converteste textul intr-un obiect JS
-  //appenduim userul creat la users existenti
+  const users = JSON.parse(fs.readFileSync("./data/users.json"));
   users.push(req.body);
-  //stocam noul array de users inapoi in json
-  fs.writeFileSync("./data/users.json", JSON.stringify(users)); //JSON.stringify() converteste intr-un obiect JSON
+  fs.writeFileSync("./data/users.json", JSON.stringify(users));
 
-  console.log(lastName, firstName, email, password, repeatPassword);
   res.send({
-    lastName: lastName,
-    firstName: firstName,
-    email: email,
-    password: password,
-    repeatPassword: repeatPassword,
+    lastName,
+    firstName,
+    email,
+    password,
+    repeatPassword,
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server is now running at localhost:3000");
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running at http://localhost:${port}`);
 });
