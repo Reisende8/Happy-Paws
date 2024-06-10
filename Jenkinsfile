@@ -3,11 +3,11 @@ pipeline {
 
     environment {
         GIT_REPO_URL = 'https://github.com/Reisende8/Happy-Paws.git'
-        GIT_BRANCH = 'main' // Specify the branch you want to build
-        GIT_CREDENTIALS_ID = 'github' // Use the credentials ID 'github'
-        DOCKER_CREDENTIALS_ID = 'dockerhub' // Docker credentials ID
-        KUBECONFIG_CREDENTIALS_ID = 'kube' // Kubeconfig credentials ID
-        ANSIBLE_CONFIG = 'ansible/ansible.cfg' // Ansible configuration file
+        GIT_BRANCH = 'main'
+        GIT_CREDENTIALS_ID = 'github'
+        DOCKER_CREDENTIALS_ID = 'dockerhub'
+        KUBECONFIG_CREDENTIALS_ID = 'kube'
+        ANSIBLE_CONFIG = 'ansible/ansible.cfg'
     }
 
     stages {
