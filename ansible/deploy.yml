@@ -1,6 +1,8 @@
-- hosts: localhost
+- name: Deploy to Kubernetes
+  hosts: localhost
   tasks:
     - name: Create Kubernetes deployment
-      kubernetes.core.k8s:
+      kubectl:
+        kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
         state: present
         definition: "{{ lookup('file', 'k8s/deployment.yaml') }}"
