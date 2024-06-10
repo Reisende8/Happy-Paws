@@ -13,6 +13,9 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Move index.html to the expected location
+RUN mkdir -p public && mv pages/home/index.html public/index.html
+
 # Build the React app
 RUN npm run build
 
