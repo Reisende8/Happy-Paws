@@ -2,8 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: happy-paws-frontend
+  namespace: default
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: happy-paws-frontend
@@ -14,6 +15,6 @@ spec:
     spec:
       containers:
       - name: happy-paws-frontend
-        image: happy-paws-frontend:latest
+        image: reisende8/happy-paws-frontend:latest
         ports:
         - containerPort: 80
