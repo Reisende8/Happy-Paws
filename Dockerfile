@@ -9,6 +9,9 @@ RUN npm install
 
 COPY . .
 
+# Ensure we move the index.html to the expected public folder
+RUN mkdir -p public && cp pages/home/index.html public/
+
 RUN npm run build
 
 # Stage 2: Serve the app with Express
@@ -16,7 +19,6 @@ FROM node:14
 
 WORKDIR /app
 
-COPY --from=build /app/pages /app/pages
 COPY --from=build /app/build /app/build
 COPY --from=build /app/server.js .
 COPY --from=build /app/package*.json ./
