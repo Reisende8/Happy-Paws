@@ -1,5 +1,7 @@
 - name: Deploy to Kubernetes
   hosts: localhost
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
   tasks:
     - name: Create Kubernetes deployment
       community.kubernetes.k8s:
