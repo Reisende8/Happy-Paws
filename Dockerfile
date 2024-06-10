@@ -13,26 +13,25 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
-# Move index.html to the expected location
-RUN mkdir -p public && mv pages/home/index.html public/index.html
-
 # Build the React app
 RUN npm run build
 
-# Stage 2: Use Nginx to serve the app
-FROM nginx:alpine
+# Stage 2: Serve the app with Express
+FROM node:14
 
-# Copy custom Nginx configuration
-COPY nginx.conf /etc/nginx/nginx.conf
+# Set the working directory
+WORKDIR /app
 
-# Remove default Nginx website
-RUN rm -rf /usr/share/nginx/html/*
+# Copy the build files and server file
+COPY --from=build /app/build /app/build
+COPY server.js .
 
-# Copy React build files from the first stage
-COPY --from=build /app/build /usr/share/nginx/html
+# Install production dependencies
+RUN npm install express
 
 # Expose port 80
 EXPOSE 80
 
-# Start Nginx
-CMD ["nginx", "-g", "daemon off;"]
+# Start the application
+CMD ["node", "server.js"]
+
