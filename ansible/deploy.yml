@@ -7,4 +7,5 @@
       community.kubernetes.k8s:
         kubeconfig: "{{ lookup('env', 'KUBECONFIG') }}"
         state: present
+        namespace: default
         definition: "{{ lookup('file', lookup('env', 'WORKSPACE') ~ '/k8s/deployment.yaml') }}"
