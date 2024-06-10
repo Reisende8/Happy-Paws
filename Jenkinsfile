@@ -40,7 +40,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build("happy-paws-frontend:${env.BUILD_ID}")
+                    docker.build("reisende8/happy-paws-frontend:${env.BUILD_ID}")
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://index.docker.io/v1/', "${DOCKER_CREDENTIALS_ID}") {
-                        docker.image("happy-paws-frontend:${env.BUILD_ID}").push('latest')
+                        docker.image("reisende8/happy-paws-frontend:${env.BUILD_ID}").push('latest')
                     }
                 }
             }
